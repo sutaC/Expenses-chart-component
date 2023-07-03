@@ -1,5 +1,9 @@
-<script>
+<script lang="ts">
 	import Chart from '$lib/components/chart.svelte';
+	import type { PageData } from './$types';
+
+	export let data: PageData;
+	const { chartData } = data;
 </script>
 
 <header>
@@ -11,7 +15,7 @@
 <main>
 	<section aria-labelledby="spending" class="spending">
 		<h2 id="spending" class="medium">Spending - Last 7 days</h2>
-		<Chart data={[]} />
+		<Chart data={chartData} />
 	</section>
 	<section aria-labelledby="total" class="summary">
 		<div>
@@ -123,6 +127,9 @@
 	section.spending {
 		border-bottom: 1px solid var(--clr-neutral-mBrown);
 		padding-bottom: 1rem;
+		margin-bottom: 1rem;
+	}
+	section.spending > h2 {
 		margin-bottom: 1rem;
 	}
 
